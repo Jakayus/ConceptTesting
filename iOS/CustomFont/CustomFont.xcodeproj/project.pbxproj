@@ -11,6 +11,7 @@
 		DCF8C95B2A7B6B3600A65422 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8C95A2A7B6B3600A65422 /* ContentView.swift */; };
 		DCF8C95D2A7B6B3700A65422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF8C95C2A7B6B3700A65422 /* Assets.xcassets */; };
 		DCF8C9602A7B6B3700A65422 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF8C95F2A7B6B3700A65422 /* Preview Assets.xcassets */; };
+		DCF8C9672A7B6D9200A65422 /* ArcadeClassic-ov2x.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCF8C9662A7B6D4E00A65422 /* ArcadeClassic-ov2x.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		DCF8C95A2A7B6B3600A65422 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DCF8C95C2A7B6B3700A65422 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCF8C95F2A7B6B3700A65422 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DCF8C9662A7B6D4E00A65422 /* ArcadeClassic-ov2x.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcadeClassic-ov2x.ttf"; sourceTree = "<group>"; };
+		DCF8C9682A7B6E3500A65422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,8 @@
 		DCF8C9572A7B6B3600A65422 /* CustomFont */ = {
 			isa = PBXGroup;
 			children = (
+				DCF8C9682A7B6E3500A65422 /* Info.plist */,
+				DCF8C9662A7B6D4E00A65422 /* ArcadeClassic-ov2x.ttf */,
 				DCF8C9582A7B6B3600A65422 /* CustomFontApp.swift */,
 				DCF8C95A2A7B6B3600A65422 /* ContentView.swift */,
 				DCF8C95C2A7B6B3700A65422 /* Assets.xcassets */,
@@ -125,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF8C9672A7B6D9200A65422 /* ArcadeClassic-ov2x.ttf in Resources */,
 				DCF8C9602A7B6B3700A65422 /* Preview Assets.xcassets in Resources */,
 				DCF8C95D2A7B6B3700A65422 /* Assets.xcassets in Resources */,
 			);
@@ -270,6 +276,7 @@
 				DEVELOPMENT_TEAM = 97BFAG7885;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CustomFont/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +306,7 @@
 				DEVELOPMENT_TEAM = 97BFAG7885;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CustomFont/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
