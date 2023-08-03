@@ -19,21 +19,24 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!").font(Font.custom("ArcadeClassic", size: 30))
+            Text("Hello, world!").font(Font.custom("ArcadeClassic",
+                                                   size: textSize(textStyle: .title2)))
         }
-        .padding()
-        .onAppear{
-            for family in UIFont.familyNames {
-                     print(family)
-                     for names in UIFont.fontNames(forFamilyName: family){
-                     print("== \(names)")
-                     }
-                }
-        }
+
+//        .onAppear{
+//            for family in UIFont.familyNames {
+//                     print(family)
+//                     for names in UIFont.fontNames(forFamilyName: family){
+//                     print("== \(names)")
+//                     }
+//                }
+//        }
     }
+    
+    // methods
+    func textSize(textStyle: UIFont.TextStyle) -> CGFloat {
+        return UIFont.preferredFont(forTextStyle: textStyle).pointSize
+     }
 }
 
 struct ContentView_Previews: PreviewProvider {
