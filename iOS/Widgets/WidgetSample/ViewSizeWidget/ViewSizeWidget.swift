@@ -8,59 +8,48 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
-    }
+/*
+ widgets consist of 4 components:
+ 1. timeline entry
+ 2. widget view
+ 3. timeline provider
+ 4. widget configuration
+ 
+ 
+ */
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
-        completion(entry)
-    }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
-    }
-}
-
-struct SimpleEntry: TimelineEntry {
+// 1. timeline entry
+struct ViewSizeEntry: TimelineEntry {
     let date: Date
+    let providerInfo: String // info related to timeline provider to show on widget
 }
 
-struct ViewSizeWidgetEntryView : View {
-    var entry: Provider.Entry
 
+// 2. widget view
+
+struct ViewSizeWidgetView: View {
+    
+    let entry: ViewSizeEntry
+    
     var body: some View {
-        Text(entry.date, style: .time)
-    }
-}
-
-struct ViewSizeWidget: Widget {
-    let kind: String = "ViewSizeWidget"
-
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            ViewSizeWidgetEntryView(entry: entry)
+        
+        GeometryReader { geometry in
+            
+            VStack {
+                // show view size
+                Text("\(Int(geometry.size.width)) x \(Int(geometry.size.height))")
+                    .font(.system(.title2, weight: .bold))
+                
+                // show provider info
+                Text(entry.providerInfo)
+                    .font(.footnote)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.green)
+            
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        
     }
-}
-
-struct ViewSizeWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        ViewSizeWidgetEntryView(entry: SimpleEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
+    
 }

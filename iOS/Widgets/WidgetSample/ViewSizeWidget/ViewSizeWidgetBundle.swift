@@ -8,9 +8,3 @@
 import WidgetKit
 import SwiftUI
 
-@main
-struct ViewSizeWidgetBundle: WidgetBundle {
-    var body: some Widget {
-        ViewSizeWidget()
-    }
-}
