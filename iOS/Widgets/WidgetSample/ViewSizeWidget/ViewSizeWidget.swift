@@ -53,3 +53,29 @@ struct ViewSizeWidgetView: View {
     }
     
 }
+
+// 3. timeline provider
+struct ViewSizeTimelineProvider: TimelineProvider {
+    
+    typealias Entry = ViewSizeEntry
+    
+    func placeholder(in context: Context) -> Entry {
+        // provides dummy data to UI as placeholder as Widget gets ready
+        return ViewSizeEntry(date: Date(), providerInfo: "Placeholder")
+    }
+    
+    func getSnapshot(in context: Context, completion: @escaping (Entry) -> Void) {
+        // provides the data required by the system to render the widget in the gallery
+        let entry = ViewSizeEntry(date: Date(), providerInfo: "snapshot")
+        completion(entry)
+    }
+    
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+        // provides an array of timeline entries for the current time
+        // optionally provides future times to update a widget
+        let entry = ViewSizeEntry(date: Date(), providerInfo: "timeline")
+        let timeline = Timeline(entries: [entry], policy: .never)
+        completion(timeline)
+    }
+    
+}
