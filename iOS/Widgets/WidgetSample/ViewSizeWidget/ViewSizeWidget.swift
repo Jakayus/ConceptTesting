@@ -45,8 +45,9 @@ struct ViewSizeWidgetView: View {
                 Text(entry.providerInfo)
                     .font(.footnote)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.green)
+            .containerBackground(for: .widget) {
+                Color.green
+            }
             
         }
         
@@ -77,5 +78,26 @@ struct ViewSizeTimelineProvider: TimelineProvider {
         let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)
     }
+    
+}
+
+// 4. widget configuration
+@main
+struct ViewSizeWidget: Widget {
+    let kind: String = "ViewSizeWidget"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: ViewSizeTimelineProvider()) { entry in
+            ViewSizeWidgetView(entry: entry)
+        }
+        .configurationDisplayName("View Size Widget")
+        .description("This is a demo widget")
+        .supportedFamilies([
+            .systemSmall,
+            .systemMedium,
+            .systemLarge
+        ])
+    }
+    
     
 }
